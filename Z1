@@ -1,0 +1,11 @@
+def z1(list,i):
+    ret=[]
+    for j in range(len(list)):
+        print(j)
+        if i==list[j]:
+            ret.append(j)
+    return ret
+
+
+l1=[0,2,4,5]
+print(z1(l1,5))
