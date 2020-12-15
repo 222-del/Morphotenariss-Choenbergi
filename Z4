@@ -1,0 +1,29 @@
+def Checker (List,change,min,coinsUsed):
+   for i in range(change+1):
+      Coin = i
+      newCoin = 1
+      for j in [c for c in List if c <= i]:
+            if min[i-j] + 1 < Coin:
+               Coin = min[i-j]+1
+               newCoin = j
+      min[i] = Coin
+      coinsUsed[i] = newCoin
+   return min[change]
+
+def printCoins(coinsUsed,change):
+   coin = change
+   while coin > 0:
+      thisCoin = coinsUsed[coin]
+      print(thisCoin)
+      coin = coin - thisCoin
+
+def main():
+    sum = 55
+    par = [1,5,10,21,25]
+    coinsUsed = [0]*(sum+1)
+    coinCount = [0]*(sum+1)
+
+    print(Checker(par,sum,coinCount,coinsUsed),"монеты")
+    printCoins(coinsUsed,sum)
+
+main()
